@@ -1,64 +1,106 @@
-var quizQuestions = [
+var questions = [
     {
         question: "What does HTML stand for?",
-        answers: {
-            a:"HyperText Manual language",
-            b:"HyperText Markup Language",
-            c:"Host Testing Maneuver Language",
-            d:"Handy Text Making Language"
+        answers: [
+            {text: "HyperText Manual language", correct: false},
+            {text:"HyperText Markup Language", correct: true},
+            {text:"Host Testing Maneuver Language",  correct: false},
+            {text:"Handy Text Making Language",  correct: false}
+        ]
         },
-        correctAnswer: "b"
-    }, 
 
     {
         question: "Select the Boolean value.",
-        answers: {
-            a:" 'True' ", //may need to change because of quotation marks
-            b:"1234",
-            c:"'False'",//may need to change because of quotation marks
-            d:"False"
-        },
-        correctAnswer: "d"
+        answers: [
+            {text:" 'True' ", correct: false}, //may need to change because of quotation marks
+            {text:"1234", correct: false},
+            {text:"'False'", correct: false},//may need to change because of quotation marks
+            {text:"False", correct: true}
+        ]
     }, 
 
     {
         question: "If var expression2 = false, what is the value of console.log(expression1 &&  !expression2 ?",
-        answers: {
-            a:"False", 
-            b:"Undefined",
-            c:" 'True' ",//may need to change because of quotation marks
-            d:"True"
-        },
-        correctAnswer: "d"
+        answers: [
+            {text:"False",correct: false}, 
+            {text:"Undefined", correct: false},
+            {text:" 'True' ", correct: false},//may need to change because of quotation marks
+            {text:"True", correct: true}
+        ]
     }, 
 
 
     {
         question: "What is the name for a variable placed within a function?",
-        answers: {
-            a:"Local Scope", 
-            b:"Internal Scope",
-            c:"External Scope",
-            d:"Global Scope"
-        },
-        correctAnswer: "a"
+        answers: [
+            {text:"Local Scope",  correct: true},
+            {text:"Internal Scope", correct: false},
+            {text:"External Scope", correct: false},
+            {text:"Global Scope", correct: false}
+        ]
     }, 
 
     {
         question: "What does the '.' symbole represent in CSS?",
-        answers: {
-            a:"id", 
-            b:"body",
-            c:"class",
-            d:"header"
-        },
-        correctAnswer: "c"
+        answers: [
+            {text:"id", correct: false},
+            {text:"body", correct: false},
+            {text:"class",correct: true},
+            {text:"header", correct: false}
+        ]
     }, 
 ];
 
-var questionEl = document.getElementById("#question");
-var multiChoice = document.getElementById("#multiplechoice");
-var nextQuestion = document.getElementById("#nextquestionbtn");
 
-var scoreNumber = 0;
- 
+
+var questionEl = document.getElementById("question");
+var answerButton = document.getElementById("answeroption");
+var homePage = document.getElementById("homepage");
+var startQuizBtn = document.getElementById("startquizbutton");
+var quizSheet = document.getElementById("quizsheet");
+
+startQuizBtn.addEventListener("click",startQuiz);
+
+function startQuiz() {
+//    console.log("this works right??");
+    startQuizBtn.classList.add("hide");
+    homePage.classList.add("hide");
+    timerOn();
+    
+    showQuestions();
+
+}
+
+currentQuestionIndex = 0
+score = 0
+
+
+function collectPoints (){
+
+}
+function showQuestions(){
+    
+}
+// must make for loop for questions
+
+
+
+// startQuiz();
+
+    // timer within the quiz
+    var secondLeft = 75
+
+var timerEl = document.querySelector(".timerZ");
+
+function timerOn(){
+    var secondsInterval = setInterval(function(){
+        secondLeft--;
+        timerEl.textContent = secondLeft + " second(s) left to complete the quiz";
+
+        if (secondLeft === 0) {
+            clearInterval(secondsInterval);
+        }
+    }, 1000);
+}
+
+// timerOn();
