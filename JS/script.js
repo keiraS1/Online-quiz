@@ -59,6 +59,20 @@ var questions = [
     }, 
 ];
 
+let currentQuestion = 0;
+var score = 0;
+
+
+
+
+
+
+
+
+
+
+
+
 
 startQuizBtn.addEventListener("click", startQuiz);
 
@@ -80,11 +94,10 @@ function showQuestions(){
     console.log("does this work in the console")
     console.log(questions);
 
-    // quizSheet.classList.remove("none");
+    currentQuestion = 0;
     // quizSheet.removeAttribute("none");
-    // currentQuestionIndex = 0
-    // score = 0    
-
+    // quizSheet.classList.remove("none");
+    questionEl.innerHTML = questions[currentQuestion].question;
 }
 
 // showQuestions()

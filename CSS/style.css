@@ -201,6 +201,12 @@ body {
     background-color: rgb(89, 89, 174);
 
 }
+
+/* this second hide is for the next buttons when an answer is clicked */
+.hide2 {
+    display:none;
+}
+
 #viewhighscores2 {
     background: none;
     border: none;
@@ -228,9 +234,9 @@ body {
 }
 
 
-.homepage {
+/* .homepage {
 
-}
+} */
 
 
 .highscoretitle {
