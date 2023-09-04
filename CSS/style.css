@@ -97,7 +97,19 @@ body {
     font-size:large;
     color: var(--darkBlue);
     font-weight:bold;
+    font-family: var(--fontfam);
 }
+
+#currentscore {
+    font-size: large;
+    font-family: var(--fontfam);
+    color: var(--darkBlue);
+    font-weight: bolder;
+    margin: 0 auto;
+    justify-content: center;
+    /* justify-content: space-between; */
+}
+
 
 #viewhighscores {
     background: none;
@@ -219,3 +231,14 @@ body {
 .homepage {
 
 }
+
+
+.highscoretitle {
+    font-size: 250%;
+    font-family: var(--fontfam);
+    margin-top: 50px;
+    color: var(--darkBlue);
+    font-weight: bolder;
+
+}
+

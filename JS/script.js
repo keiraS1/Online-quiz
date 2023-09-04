@@ -1,3 +1,11 @@
+var questionEl = document.getElementById("question");
+var answerButton = document.getElementById("answeroption");
+var homePage = document.getElementById("homepage");
+var startQuizBtn = document.getElementById("startquizbutton");
+var quizSheet = document.getElementById("quizsheet");
+var score = document.getElementById("currentscore");
+
+
 var questions = [
     {
         question: "What does HTML stand for?",
@@ -12,9 +20,9 @@ var questions = [
     {
         question: "Select the Boolean value.",
         answers: [
-            {text:" 'True' ", correct: false}, //may need to change because of quotation marks
+            {text:" 'True' ", correct: false}, 
             {text:"1234", correct: false},
-            {text:"'False'", correct: false},//may need to change because of quotation marks
+            {text:" 'False' ", correct: false},
             {text:"False", correct: true}
         ]
     }, 
@@ -24,7 +32,7 @@ var questions = [
         answers: [
             {text:"False",correct: false}, 
             {text:"Undefined", correct: false},
-            {text:" 'True' ", correct: false},//may need to change because of quotation marks
+            {text:" 'True' ", correct: false},
             {text:"True", correct: true}
         ]
     }, 
@@ -52,14 +60,7 @@ var questions = [
 ];
 
 
-
-var questionEl = document.getElementById("question");
-var answerButton = document.getElementById("answeroption");
-var homePage = document.getElementById("homepage");
-var startQuizBtn = document.getElementById("startquizbutton");
-var quizSheet = document.getElementById("quizsheet");
-
-startQuizBtn.addEventListener("click",startQuiz);
+startQuizBtn.addEventListener("click", startQuiz);
 
 function startQuiz() {
 //    console.log("this works right??");
@@ -71,16 +72,23 @@ function startQuiz() {
 
 }
 
-currentQuestionIndex = 0
-score = 0
 
+// function collectPoints (){
 
-function collectPoints (){
-
-}
+// }
 function showQuestions(){
-    
+    console.log("does this work in the console")
+    console.log(questions);
+
+    // quizSheet.classList.remove("none");
+    // quizSheet.removeAttribute("none");
+    // currentQuestionIndex = 0
+    // score = 0    
+
 }
+
+// showQuestions()
+
 // must make for loop for questions
 
 
@@ -99,6 +107,7 @@ function timerOn(){
 
         if (secondLeft === 0) {
             clearInterval(secondsInterval);
+            window.location.assign("http://127.0.0.1:5500/Online-quiz/highscores.html");
         }
     }, 1000);
 }
