@@ -3,7 +3,7 @@ var answerButton = document.getElementById("answeroption");
 var homePage = document.getElementById("homepage");
 var startQuizBtn = document.getElementById("startquizbutton");
 var quizSheet = document.getElementById("quizsheet");
-var score = document.getElementById("currentscore");
+// var score = document.getElementById("currentscore");
 var multipleChoice = document.getElementById("multiplechoice");
 
 // timer within the quiz
@@ -94,19 +94,19 @@ function showQuestions() {
         var buttons = document.createElement("button")
 
         buttons.textContent = questions[currentQuestion].answers[i].text;
-        buttons.classList.add('answeroption')
+        buttons.classList.add("answeroption")
 
         // we need to create, add, append
         multipleChoice.append(buttons)
     }
 
 }
-
 // buttons.addEventListener("click", nextQuestion);
 
 function nextQuestion (){
+    // console.log("does this work")
     var nextbtn = document.createElement("button");
-
+   
     nextbtn.textContent = nextBtnQuestion;
     nextbtn.classList.add("nextquestionbtn"); 
 }

@@ -14,10 +14,6 @@ body {
 
 
 
-/* .firstpage{
-    display: flex;
-    position: relative;
-} */
 
 .quizintro {
     color: var(--darkBlue);
@@ -194,7 +190,6 @@ body {
 
 }
 
-/* this second hide is for the next buttons when an answer is clicked */
 .hide {
     display:none;
 }
