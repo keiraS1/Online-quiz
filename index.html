@@ -1,51 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Online Quiz</title>
-    <link rel="stylesheet" href="CSS/reset.css"/>
+    <link rel="stylesheet" href="CSS/reset.css" />
     <link rel="stylesheet" href="CSS/style.css" />
 </head>
-<body >
- <section class="firstpage">
-    <section class="top">
-    <a href="highscores.html">
-        <button id="viewhighscores"> View High Scores</button>
-    </a>
-    <!-- score will be placed -->
-    <h2 class="timerZ">75 seconds to complete the quiz </h2>  
-    </section>
-    <p id="currentscore"> Score: 0</p>
-<section id="homepage">
-    <h1 class= "quizintro" id="quizyourself"> Quiz Yourself!</h1>
-    <h2 class= "quizintro" id="knowcode"> How well do you know code?</h2>
-        <p class= "quizintro" id="instructions"> You will be given 75 seconds to complete the quiz! Make sure to be timely when answering each question. For each wrong answer, 10 seconds will be deducted.</p>
-        <p class= "quizintro" id="goodluck"> GoodLuck!</p>
+
+<body>
+    <!-- <section class="firstpage"> -->
+    <header class="top">
+        <a href="highscores.html">
+            <button id="viewhighscores"> View High Scores</button>
+        </a>
+        <!-- score will be placed -->
+        <h2 class="timerZ">75 seconds to complete the quiz </h2>
+    </header>
+    <!-- <p id="currentscore"> Score: 0</p> -->
+    <main>
+        <section id="homepage">
+            <h1 class="quizintro" id="quizyourself"> Quiz Yourself!</h1>
+            <h2 class="quizintro" id="knowcode"> How well do you know code?</h2>
+            <p class="quizintro" id="instructions"> You will be given 75 seconds to complete the quiz! Make sure to be
+                timely when answering each question. For each wrong answer, 10 seconds will be deducted.</p>
+            <p class="quizintro" id="goodluck"> GoodLuck!</p>
 
             <!-- <a href="startquiz.html"> -->
-                <button id="startquizbutton">  START QUIZ </button>
+            <button id="startquizbutton"> START QUIZ </button>
             <!-- </a> -->
-</section>   
-            <section id="quizsheet">
-                <h2 id="question"> A question here </h2>
-                <main id="mainquestion">
-                <section id = "multiplechoice">
-                    <button class="answeroption"> something 1</button>
-                    <button class="answeroption">something 2</button>
-                    <button class="answeroption">something 3</button>
-                    <button class="answeroption">something 4</button>
-                </section>  
-                </main>
-                <button class="hide2" id ="nextquestionbtn"></button>
-                
-            </section>
-           <!-- make container for timer running out -->
-</section>  
+        </section>
+        <section id="quizsheet" class="hide">
+            <h2 id="question"> A question here </h2>
+            <div id="multiplechoice">
+            </div>
+            <!-- <button id="nextquestionbtn"></button> -->
 
-<!-- put form for input of score and name  -->
+        </section>
+        <!-- make container for timer running out -->
+    </main>
+    <!-- </section> -->
 
-<script src= "JS/script.js"></script>
+    <!-- put form for input of score and name  -->
+
+    <script src="JS/script.js"></script>
 </body>
+
 </html>

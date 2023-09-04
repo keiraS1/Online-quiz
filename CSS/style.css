@@ -12,10 +12,6 @@ body {
     text-align: center;
 }
 
-.hide {
-    display: none;
-}
-
 
 
 /* .firstpage{
@@ -129,10 +125,6 @@ body {
 }
 
 
-#quizsheet {
-    display: none;
-}
-
 #mainquestion {
     width: 100%;
     display: flex;
@@ -179,7 +171,7 @@ body {
     background-color: var(--hue-correct);
 }   
 
-#nextquestionbtn {
+.nextquestionbtn {
     font-size: x-large;
     font-family: var(--fontfam);
     /* color: var(--darkBlue); */
@@ -190,20 +182,20 @@ body {
     border: 0;
     padding: 20px;
 }
-#nextquestionbtn:hover {
+.nextquestionbtn:hover {
     box-shadow: 0 0 5px var(--darkBlue);
     cursor: grab;
     background-color: rgb(89, 89, 174);
 }
 
-#nextquestionbtn:active {
+.nextquestionbtn:active {
     cursor: grabbing;
     background-color: rgb(89, 89, 174);
 
 }
 
 /* this second hide is for the next buttons when an answer is clicked */
-.hide2 {
+.hide {
     display:none;
 }
 
