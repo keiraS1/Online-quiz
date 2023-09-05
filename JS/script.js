@@ -1,141 +1,174 @@
-var questionEl = document.getElementById("question");
-var answerButton = document.getElementById("answeroption");
-var homePage = document.getElementById("homepage");
-var startQuizBtn = document.getElementById("startquizbutton");
-var quizSheet = document.getElementById("quizsheet");
-// var score = document.getElementById("currentscore");
-var multipleChoice = document.getElementById("multiplechoice");
+// index.html page
+if (window.location.pathname === "/Online-quiz/index.html") {
+    localStorage.removeItem('score'); //this will prevent the last score from adding onto the next players score 
+    let score = 0;
+    var questionEl = document.getElementById("question");
+    var answerButton = document.getElementById("answeroption");
+    var homePage = document.getElementById("homepage");
+    var startQuizBtn = document.getElementById("startquizbutton");
+    var quizSheet = document.getElementById("quizsheet");
+    var multipleChoice = document.getElementById("multiplechoice");
 
-// timer within the quiz
-var secondLeft = 75
+    // timer within the quiz
+    var secondLeft = 75
 
-var timerEl = document.querySelector(".timerZ");
-var nextBtnQuestion = "Next Question";
+    var timerEl = document.querySelector(".timerZ");
+    // multiple choice questions to use
+    var questions = [
+        {
+            question: "What does HTML stand for?",
+            answers: [
+                { text: "HyperText Manual language", correct: false },
+                { text: "HyperText Markup Language", correct: true },
+                { text: "Host Testing Maneuver Language", correct: false },
+                { text: "Handy Text Making Language", correct: false }
+            ]
+        },
 
-var questions = [
-    {
-        question: "What does HTML stand for?",
-        answers: [
-            { text: "HyperText Manual language", correct: false },
-            { text: "HyperText Markup Language", correct: true },
-            { text: "Host Testing Maneuver Language", correct: false },
-            { text: "Handy Text Making Language", correct: false }
-        ]
-    },
+        {
+            question: "Select the Boolean value.",
+            answers: [
+                { text: " 'True' ", correct: false },
+                { text: "1234", correct: false },
+                { text: " 'False' ", correct: false },
+                { text: "False", correct: true }
+            ]
+        },
 
-    {
-        question: "Select the Boolean value.",
-        answers: [
-            { text: " 'True' ", correct: false },
-            { text: "1234", correct: false },
-            { text: " 'False' ", correct: false },
-            { text: "False", correct: true }
-        ]
-    },
-
-    {
-        question: "If var expression2 = false, what is the value of console.log(expression1 &&  !expression2 ?",
-        answers: [
-            { text: "False", correct: false },
-            { text: "Undefined", correct: false },
-            { text: " 'True' ", correct: false },
-            { text: "True", correct: true }
-        ]
-    },
-
-
-    {
-        question: "What is the name for a variable placed within a function?",
-        answers: [
-            { text: "Local Scope", correct: true },
-            { text: "Internal Scope", correct: false },
-            { text: "External Scope", correct: false },
-            { text: "Global Scope", correct: false }
-        ]
-    },
-
-    {
-        question: "What does the '.' symbole represent in CSS?",
-        answers: [
-            { text: "id", correct: false },
-            { text: "body", correct: false },
-            { text: "class", correct: true },
-            { text: "header", correct: false }
-        ]
-    },
-];
-let currentQuestion = 0;
-
-startQuizBtn.addEventListener("click", startQuiz);
-
-function startQuiz() {
-    //    console.log("this works right??");
-    quizSheet.classList.remove("hide");
-    homePage.classList.add("hide");
-    timerOn();
-    nextQuestion();
-    showQuestions();
-
-}
-
-// }
-function showQuestions() {
-    console.log("does this work in the console")
-    console.log(questions);
+        {
+            question: "If var expression2 = false, what is the value of console.log(expression1 &&  !expression2 ?",
+            answers: [
+                { text: "False", correct: false },
+                { text: "Undefined", correct: false },
+                { text: " 'True' ", correct: false },
+                { text: "True", correct: true }
+            ]
+        },
 
 
-    //pseudocoding -plain english
-    //this function will make one question from the array appear at a time
-    // take the questionEl variable and use it in this function to replace what is inside the questionEl
-    questionEl.textContent = questions[currentQuestion].question;
+        {
+            question: "What is the name for a variable placed within a function?",
+            answers: [
+                { text: "Local Scope", correct: true },
+                { text: "Internal Scope", correct: false },
+                { text: "External Scope", correct: false },
+                { text: "Global Scope", correct: false }
+            ]
+        },
 
-    for (var i = 0; i < 4; i++) {
-        // create the buttons that need to appear on the page. 
-        var buttons = document.createElement("button")
+        {
+            question: "What does the '.' symbole represent in CSS?",
+            answers: [
+                { text: "id", correct: false },
+                { text: "body", correct: false },
+                { text: "class", correct: true },
+                { text: "header", correct: false }
+            ]
+        },
+    ];
+    // for keeping track of number of questions to loop through
+    let currentQuestion = 0;
+    // when clicking on the start button- it will beging the questions function
+    startQuizBtn.addEventListener("click", startQuiz);
 
-        buttons.textContent = questions[currentQuestion].answers[i].text;
-        buttons.classList.add("answeroption")
+    function startQuiz() {
+        quizSheet.classList.remove("hide"); //making the quizsheet appear
+        homePage.classList.add("hide"); // hiding the homepage so the quizsheet can take its place on the same page
+        timerOn();
+        showQuestions();
 
-        // we need to create, add, append
-        multipleChoice.append(buttons)
+        document.getElementById('nextquestionbtn').addEventListener('click', () => {
+            nextQuestion(); //this allow the player to go to the next question even if they don't answer a question
+        });
     }
 
-}
-// buttons.addEventListener("click", nextQuestion);
 
-function nextQuestion (){
-    // console.log("does this work")
-    var nextbtn = document.createElement("button");
-   
-    nextbtn.textContent = nextBtnQuestion;
-    nextbtn.classList.add("nextquestionbtn"); 
-}
+    function showQuestions() {
 
+        //pseudocoding -plain english
+        //this function will make one question from the array appear at a time
+        // take the questionEl variable and use it in this function to replace what is inside the questionEl
+        questionEl.textContent = questions[currentQuestion].question;
+        multipleChoice.innerHTML = ''; 
 
-// must make a button for "next"
+        for (var i = 0; i < 4; i++) {
+            // create the button that need to appear on the page. 
+            var button = document.createElement("button")
 
-// difference between innerHTML and text content innerHTML- expect string text-content replace
-// '<h2>Hello</h2>' - innerHtml - divs and containers
-// 'Hello' - textContent - text elements
-// showQuestions()
+            button.textContent = questions[currentQuestion].answers[i].text;
+            button.classList.add("answeroption")
+            button.addEventListener("click", function (event) {
+                const selectedOption = questions[currentQuestion].answers.find(a => a.text === event.target.textContent);
+                if (selectedOption.correct) {
+                    // add 10 points to the players score when answer chosen is correct
+                    score += 10;
+                    document.getElementById('score').textContent = score;
+                } else {
+                    // remove 10 seconds from the timer if wrong answer
+                    secondLeft -= 10;
+                }
 
-// must make for loop for questions
+                localStorage.setItem('score', score);
+                nextQuestion();
+            });
 
-
-
-// startQuiz();
-
-
-function timerOn() {
-    var secondsInterval = setInterval(function () {
-        secondLeft--;
-        timerEl.textContent = secondLeft + " second(s) left to complete the quiz";
-
-        if (secondLeft === 0) {
-            clearInterval(secondsInterval);
-            window.location.assign("http://127.0.0.1:5500/Online-quiz/highscores.html");
+            // we need to create, add, append
+            multipleChoice.append(button)
         }
-    }, 1000);
-}
+    }
 
-// timerOn();
+
+    function nextQuestion() {
+        if (currentQuestion === questions.length - 1) { // if this is the last question it will bring the player to the highscore page to input their name to store the score
+            window.location.href = 'highscores.html';
+        } else {
+            // shows the next question
+            currentQuestion += 1;
+            showQuestions();
+        }
+    }
+
+    //timer function starting at 75 and counting down every 1000 milisecs or 1 second
+    function timerOn() {
+        var secondsInterval = setInterval(function () {
+            secondLeft--;
+            timerEl.textContent = secondLeft + " second(s) left to complete the quiz";
+
+            if (secondLeft === 0) {
+                clearInterval(secondsInterval);
+                window.location.href = 'highscores.html';
+            }
+        }, 1000);
+    }
+
+
+    // high score page
+} else {
+
+    //when you submit the name form
+    document.getElementById('scoreForm').addEventListener('submit', event => {
+        event.preventDefault();
+
+        const name = document.getElementById('name').value;
+        const plays = JSON.parse(localStorage.getItem('plays')) || []; //pulls plays Array outside of the localstorage
+        plays.push({ name, score: localStorage.getItem('score') });
+        localStorage.setItem('plays', JSON.stringify(plays)); //saves updated plays array in the local storage
+
+        showPlays(); // after saving a new name/score
+
+        document.getElementById('name').remove();
+        document.getElementById('submitButton').remove();
+    });
+
+    function showPlays() {
+        document.getElementById('leaderboard').innerHTML = '';
+        const plays = JSON.parse(localStorage.getItem('plays')) || [];
+        for (let i = 0; i < plays.length; i++) {
+            const currentPlay = plays[i];
+            const listElement = document.createElement('li');
+            listElement.innerText = currentPlay.name + ' - ' + currentPlay.score
+            document.getElementById('leaderboard').append(listElement);
+        }
+    }
+    showPlays();   // the past plays 
+}

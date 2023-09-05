@@ -4,17 +4,11 @@
     --hue-wrong:red ;
     --hue-correct:green ;
 }
-    /* --hue: var(--hue-correct); */
-
 
 body {
-    /* background-color: rgb(169, 171, 207); */
     text-align: center;
 }
-
-
-
-
+/* homepage to quiz */
 .quizintro {
     color: var(--darkBlue);
 }
@@ -36,7 +30,6 @@ body {
  #instructions{
     font-size: larger;
     font-family:var(--fontfam);
-    /* text-align: center; MIGHT not need this line*/ 
     margin: 0 auto;
     width: 70%
 }
@@ -47,8 +40,7 @@ body {
     font-family:var(--fontfam);
     margin-top: 20px;
 }
-
-
+/* start button changes when hovering and clicking */
 #startquizbutton {
     font-weight: bold;
     margin-top: 20px;
@@ -58,8 +50,7 @@ body {
     background-color: var(--darkBlue);
     border-radius: 10px;
     border: 0;
-    /* box-shadow: 0 0 5px var(--darkBlue); */
-    /* -webkit-appearance: none; PROB DON'T NEED THIS*/
+
 }
 
 #startquizbutton:hover {
@@ -80,11 +71,6 @@ body {
     justify-content: space-between;
 }
 
-.timer {
-    font-size:large;
-    color: var(--darkBlue);
-    font-weight:bold;
-}
 .timerZ {
     font-size:large;
     color: var(--darkBlue);
@@ -99,9 +85,10 @@ body {
     font-weight: bolder;
     margin: 0 auto;
     justify-content: center;
-    /* justify-content: space-between; */
 }
 
+
+/* links to other html page for viewing the highscores */
 
 #viewhighscores {
     background: none;
@@ -121,6 +108,7 @@ body {
 }
 
 
+/* multiple choice quiz section */
 #mainquestion {
     width: 100%;
     display: flex;
@@ -160,14 +148,7 @@ body {
     border: none;
 }
 
-.answeroption.wrong {
-    background-color: var(--hue-wrong);
-}
-.answeroption.correct{
-    background-color: var(--hue-correct);
-}   
-
-.nextquestionbtn {
+#nextquestionbtn {
     font-size: x-large;
     font-family: var(--fontfam);
     /* color: var(--darkBlue); */
@@ -178,37 +159,20 @@ body {
     border: 0;
     padding: 20px;
 }
-.nextquestionbtn:hover {
+#nextquestionbtn:hover {
     box-shadow: 0 0 5px var(--darkBlue);
     cursor: grab;
     background-color: rgb(89, 89, 174);
 }
 
-.nextquestionbtn:active {
+#nextquestionbtn:active {
     cursor: grabbing;
     background-color: rgb(89, 89, 174);
 
 }
-
+/* this is to hide the quizsheet of the HTML so they do not appear together with the*/
 .hide {
     display:none;
-}
-
-#viewhighscores2 {
-    background: none;
-    border: none;
-    display: flex;
-    position: absolute;
-    font-size:large;
-    color: var(--darkBlue);
-    font-weight:bold;
-}
-
-#viewhighscores2:hover {
-    color:rgb(177, 177, 243);
-    font-size: larger;
-    cursor:grab;
-    text-shadow: 0 0 1px rgb(89, 89, 174);;
 }
 
 .answeroption:hover {
@@ -220,11 +184,7 @@ body {
     box-shadow: 0 0 5px var(--darkBlue);
 }
 
-
-/* .homepage {
-
-} */
-
+/* high score page */
 
 .highscoretitle {
     font-size: 250%;
@@ -232,6 +192,17 @@ body {
     margin-top: 50px;
     color: var(--darkBlue);
     font-weight: bolder;
+}
+
+#leaderboard {
+    margin: 30px;
+    font-family: var(--fontfam);
 
 }
 
+#submitButton {
+    font-family: var(--fontfam);
+    border-radius: 10px;
+    padding: 10px;
+    border: 0;
+}
