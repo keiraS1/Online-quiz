@@ -1,5 +1,4 @@
     // high score page
-// } else {
 
     //when you submit the name form
     document.getElementById('scoreForm').addEventListener('submit', event => {
@@ -11,9 +10,6 @@
         localStorage.setItem('plays', JSON.stringify(plays)); //saves updated plays array in the local storage
 
         showPlays(); // after saving a new name/score
-
-        document.getElementById('name').remove();
-        document.getElementById('submitButton').remove();
     });
 
     function showPlays() {
