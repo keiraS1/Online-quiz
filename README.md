@@ -6,7 +6,7 @@ The Online quiz is a web application using HTML, CSS and Javascript. The purpose
 
 ![Online Quiz About Code](Screen%20Shot%202023-09-05%20at%205.30.51%20PM.png)
 
-Webpage URL: 
+Webpage URL: https://keiras1.github.io/Online-quiz/index.html
 
 ## Usage
 
